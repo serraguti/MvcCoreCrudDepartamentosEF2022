@@ -28,6 +28,9 @@ namespace MvcCoreCrudDepartamentosEF2022
         {
             string cadena =
                 this.Configuration.GetConnectionString("cadenalocalhospital");
+            services.AddTransient<RepositoryEmpleados>();
+            services.AddDbContext<EmpleadosContext>
+            (options => options.UseSqlServer(cadena));
             services.AddTransient<RepositoryDepartamentos>();
             services.AddDbContext<DepartamentosContext>
                 (options => options.UseSqlServer(cadena));
